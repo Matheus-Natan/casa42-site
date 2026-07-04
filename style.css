@@ -827,7 +827,7 @@ footer {
 .gon-galeria {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  grid-template-rows: repeat(3, 360px);
+  grid-template-rows: repeat(3, 260px);
   gap: 16px;
 }
 .gon-galeria > div { border-radius: 16px; overflow: hidden; border: 1px solid var(--gon-border); position: relative; }
