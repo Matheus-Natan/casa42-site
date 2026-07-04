@@ -12,17 +12,27 @@ jobs:
       - name: Baixar código
         uses: actions/checkout@v4
 
-      - name: Enviar para HostGator via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          port: 21
-          protocol: ftp
-          local-dir: ./
-          server-dir: public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
+      - name: Configurar chave SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Enviar arquivos via SFTP
+        run: |
+          sftp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -b - ${{ secrets.FTP_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          cd public_html
+          put index.html
+          put favicon.png
+          put foto_igreja.PNG
+          put pastor.PNG
+          mkdir assets
+          cd assets
+          put assets/geracao_foto1.png
+          put assets/geracao_foto2.png
+          put assets/geracao_foto3.gif
+          put assets/geracao_hero.gif
+          put assets/geracao_on.gif
+          bye
+          EOF
