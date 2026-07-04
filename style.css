@@ -827,10 +827,10 @@ footer {
 .gon-galeria {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 200px);
   gap: 16px;
 }
-.gon-galeria > div { border-radius: 16px; overflow: hidden; border: 1px solid var(--gon-border); position: relative; min-height: 220px; }
+.gon-galeria > div { border-radius: 16px; overflow: hidden; border: 1px solid var(--gon-border); position: relative; }
 .gon-galeria > div img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
 .gon-galeria > div:hover img { transform: scale(1.05); }
 .gon-galeria .gon-gif-tile { grid-row: 1 / 4; }
