@@ -1,0 +1,9 @@
+# Vídeos originais (muito pesados para o GitHub)
+assets/*.MOV
+assets/*.mp4
+assets/*.mov
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
