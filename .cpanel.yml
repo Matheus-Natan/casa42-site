@@ -2,4 +2,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/math6746/public_html/
-    - /bin/cp -r $DEPLOYPATH/../casa42-repo/. $DEPLOYPATH
+    - /bin/cp /home2/math6746/casa42-repo/index.html $DEPLOYPATH
+    - /bin/cp /home2/math6746/casa42-repo/style.css $DEPLOYPATH
+    - /bin/cp /home2/math6746/casa42-repo/script.js $DEPLOYPATH
+    - /bin/mkdir -p ${DEPLOYPATH}assets
+    - /bin/cp -r /home2/math6746/casa42-repo/assets/. ${DEPLOYPATH}assets/
