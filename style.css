@@ -826,15 +826,25 @@ footer {
 
 .gon-galeria {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  grid-template-rows: repeat(3, 220px);
-  gap: 16px;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  grid-template-rows: 320px 260px;
+  gap: 14px;
 }
 .gon-galeria > div { border-radius: 16px; overflow: hidden; border: 1px solid var(--gon-border); position: relative; }
-.gon-galeria > div img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .5s; background: #0A0414; }
+.gon-galeria > div img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
 .gon-galeria > div:hover img { transform: scale(1.05); }
-.gon-galeria .gon-gif-tile { grid-row: 1 / 4; }
-.gon-galeria .gon-gif-tile img { object-fit: cover; background: none; }
+
+/* GIF grande — coluna 1, ocupa as 2 linhas */
+.gon-galeria .gon-gif-tile { grid-column: 1; grid-row: 1 / 3; }
+
+/* foto1 (totó) — coluna 2, linha 1 */
+.gon-galeria .gon-foto1 { grid-column: 2; grid-row: 1; }
+
+/* foto2 (meninas) — coluna 3, linha 1 */
+.gon-galeria .gon-foto2 { grid-column: 3; grid-row: 1; }
+
+/* foto3 GIF — colunas 2-3, linha 2 (wide) */
+.gon-galeria .gon-foto3 { grid-column: 2 / 4; grid-row: 2; }
 .gon-galeria .gon-tag {
   position: absolute; bottom: 14px; left: 14px;
   font-family: 'Montserrat', sans-serif;
