@@ -680,6 +680,7 @@ footer {
 .gon-hero-bg img {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center 60%;
   opacity: .75;
   filter: saturate(1.1) contrast(1.02);
 }
